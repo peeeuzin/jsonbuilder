@@ -1,0 +1,32 @@
+program = _{ SOI ~ block ~ EOI }
+
+block = {
+    (statements ~ ("" ~ statements)*)?
+}
+
+statements = {
+  
+  | object
+  | array_map
+  | decl
+}
+
+decl = {
+    (namespace | crnt) ~ placeholder
+}
+
+array_map = {
+    namespace ~ placeholder ~ "|" ~ ident ~ "|" ~ "do" ~ block ~ "end"
+}
+
+object = {
+    namespace ~ "do" ~ block ~ "end"
+}
+
+ident       = @{ ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "_")* }
+namespace   =  { ident ~ ("." ~ ident)* }
+placeholder =  { "@" ~ (namespace | ident) }
+crnt        =  { "_" }
+
+WHITESPACE = _{ " " | "\t" | "\n" }
+COMMENT    = _{ "#" ~ (!"\n" ~ ANY)* }

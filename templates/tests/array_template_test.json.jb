@@ -1,0 +1,14 @@
+notes @notes |note| do
+    content @note.content
+    author do
+        name @note.author.name
+        age @note.author.age
+    end
+    comments @note.comments |comment| do
+        content @comment.content
+        author do
+            name @comment.author.name
+            age @comment.author.age
+        end
+    end
+end

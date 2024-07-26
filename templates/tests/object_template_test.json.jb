@@ -1,0 +1,5 @@
+content @note.content
+author do
+    name @note.author.name
+    age @note.author.age
+end

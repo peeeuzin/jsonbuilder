@@ -1,0 +1,20 @@
+[package]
+name = "jsonbuilder"
+version = "0.1.0"
+edition = "2021"
+description = "A json builder used to create JSON structures using a simple DSL"
+authors = ["Pedro Augusto <contato.pedrinfx@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/peeeuzin/jsonbuilder"
+readme = "README.md"
+build = "src/build.rs"
+
+[dependencies]
+serde = { version = "1.0.204", features = ["derive"] }
+serde_json = "1.0.120"
+pest = "2.7.11"
+pest_derive = "2.7.11"
+toml = "0.8.16"
+
+[build-dependencies]
+hooky-rs = "1.0.0"
